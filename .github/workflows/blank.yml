@@ -29,7 +29,7 @@ jobs:
     # Runs a set of commands using the runners shell
     - name: Run a multi-line script
       run: |
-        wget http://bigota.d.miui.com/V11.0.9.0.QFACNXM/miui_CEPHEUS_V11.0.9.0.QFACNXM_aa7683f027_10.0.zip
+        wget http://bigota.d.miui.com/20.4.27/miui_CEPHEUS_20.4.27_2b15191b0e_10.0.zip
         chmod +x extract.sh
         sh extract.sh
         ls -lna
