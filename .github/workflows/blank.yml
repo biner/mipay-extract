@@ -55,9 +55,8 @@ jobs:
         echo Add other actions to build,
         echo test, and deploy your project.
         
-    - name: 【User】 transfer
-      id: transfer
-      uses: biner/transfer@master
+    - name: 【Custom】 Upload artifact
+      uses: actions/upload-artifact@master
       with:
-        platform: arp
+        name: Mipay
         path: ./targets/
