@@ -46,7 +46,7 @@ jobs:
     - name: Run a multi-line script
       run: |
         chmod +x extract.sh
-        sh extract.sh
+        ./extract.sh --appvault
         ls -lna
         echo Add other actions to build,
         echo test, and deploy your project.
