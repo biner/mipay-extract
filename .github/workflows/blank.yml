@@ -22,14 +22,28 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    # Runs a single command using the runners shell
-    - name: Run a one-line script
-      run: echo Hello, world!！！！！
 
+
+    # 下载文件
+    - name: 【Cache】 ROM
+      id: cache-primes
+      uses: actions/cache@master
+      env:
+        cache-name: mi9
+      with:
+        path: ./rom
+        key: ${{ runner.os }}-${{ env.cache-name }}
+
+    - name: Generate Prime Numbers
+      if: steps.cache-primes.outputs.cache-hit != 'true'
+      run: |
+        cd ./rom
+        wget http://bigota.d.miui.com/20.4.27/miui_CEPHEUS_20.4.27_2b15191b0e_10.0.zip
+    
+        
     # Runs a set of commands using the runners shell
     - name: Run a multi-line script
       run: |
-        wget http://bigota.d.miui.com/20.4.27/miui_CEPHEUS_20.4.27_2b15191b0e_10.0.zip
         chmod +x extract.sh
         sh extract.sh
         ls -lna
